@@ -13,4 +13,4 @@ class TaggedItem(models.Model):
     # product = models.ForeignKey(Product) BAD IMPLEMENTATION
     product = models.ForeignKey(ContentType, on_delete=models.CASCADE) #allows generic relations 
     object_id = models.PositiveIntegerField()
-    content_object = GenericForeignKey() # to find the product/other item in generic relation
+    content_object = GenericForeignKey('product', 'object_id') # to find the product/other item in generic relation
